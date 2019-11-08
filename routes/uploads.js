@@ -4,6 +4,7 @@ let express = require('express'),
    Posts = require('../model/Posts'),
    crypto = require('crypto'),
    multer = require('multer'),
+   path = require('path'),
    GridFsStorage = require('multer-gridfs-storage');
 
    router.get('/', function(req, res, next) {
@@ -43,7 +44,7 @@ file: (req, file) => {
 });
 const upload = multer({ storage });
 
-router.post('/imagem',  /*upload.single('file'),*/(req, res, next) => {
+router.post('/imagem',  upload.single('file'), (req, res, next) => {
 if(req.session.userId) {
     Users.findOne(req.session.userId).then((user) => {
     res.redirect('/feed')
