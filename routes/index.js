@@ -76,6 +76,7 @@ router.post('/endereco', (req, res, next) => {
           bairro: req.body.bairro,
           cidade: req.body.cidade
         };
+        user.admin = req.body.adm
         user.save().then(() => res.redirect('/feed'));
     });
   } else {

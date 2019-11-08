@@ -9,6 +9,7 @@ let createError = require('http-errors'),
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var feedRouter = require('./routes/feed');
+var uploadsRouter = require('./routes/uploads');
 
 var app = express();
 
@@ -26,6 +27,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/feed', feedRouter);
+app.use('/uploads', uploadsRouter);
+
+app.use(function (req, res, next) {
+  req.session.message = req.session.message || { error: [], success: [], info: [] };
+  app.locals.message  = req.session.message;
+ })
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

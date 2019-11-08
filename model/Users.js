@@ -4,10 +4,12 @@ module.exports = class Users extends MongoDocument {
     constructor (data) {
         super(data);
         this.nome = data.nome;
+        this.admin = data.admin;
         this.email = data.email;
         this.senha = data.senha;
         this.endereco = data.endereco;
         this._id = data._id;
+        this.uploads = data.uploads;
         this.collection = 'users';
     }
 

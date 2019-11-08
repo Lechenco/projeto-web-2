@@ -18,5 +18,18 @@ router.get('/', function(req, res, next) {
         res.redirect('/');
     }
 });
-
+  
+router.post('/irParaUploads', function(req, res, next){
+    if(req.session.userId){
+        User.findOne(req.session.userId).then((user) => {
+            if(user.endereco && user.admin){
+                res.redirect('/uploads');
+            }
+            else{
+                
+            };
+        })
+    }
+})
+    
 module.exports = router;
