@@ -392,3 +392,11 @@ body{
       display: none;
   }
 }
+
+form.dark label, .dark {
+  color: white;
+}
+
+p.error {
+  color: red;
+}

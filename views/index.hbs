@@ -24,7 +24,7 @@
                             <input type="text" class="search-input" placeholder="Search GitHub">
                             <img src="images/search-key-slash.svg" alt="" class="search-symbol">
                         </div>
-                        <a href="" class="button signin">Sign in</a>
+                        <a href="/login" class="button signin">Sign in</a>
                         <a href="" class="button border">Sign up</a> 
                         <div class="hidden-menu"></div>
                      </div>
@@ -46,44 +46,44 @@
                 </p>                        
             </div>
             <div class="login">
-                <div class="telaLogin">
-                    <div class="rotulo">
-                        <label>Username</label>
-                    </div>
-                    <div class="texto">
-                        <input type="text">
-                    </div>
-                    <div class="rotulo">
-                        <label>Email</label>
-                    </div>
-                    <div class="texto">
-                        <input type="text">
-                    </div>
-                    <div class="rotulo">
-                        <label>Password</label>
-                    </div>
-                    <div class="texto">
-                        <input type="text">
-                    </div>
-                    <p class="regras">
-                        Make sure it's at least 15 characters OR at least 8 
-                        characters including a number and a lowercase letter. 
-                        <a href="#">Learn more</a>.
-                    </p>
+                <form action="/cadastrar" method="post">
+                    <div class="telaLogin">
+                        <div class="rotulo">
+                            <label>Username</label>
+                        </div>
+                        <div class="texto">
+                            <input type="text" id="username" name="username">
+                        </div>
+                        <div class="rotulo">
+                            <label>Email</label>
+                        </div>
+                        <div class="texto">
+                            <input type="text" id="email" name="email">
+                        </div>
+                        <div class="rotulo">
+                            <label>Password</label>
+                        </div>
+                        <div class="texto">
+                            <input type="password" id="password" name="password">
+                        </div>
+                        <p class="regras">
+                            Make sure it's at least 15 characters OR at least 8 
+                            characters including a number and a lowercase letter. 
+                            <a href="#">Learn more</a>.
+                        </p>
 
-                    <div class="button2">
-                        Sign up for GitHub
+                        <p class="error">{{this.error}}</p>
+
+                        <input class="button2" type="submit" value="Sign up for GitHub">
+                        <p class="regras termos">
+                            By clicking “Sign up for GitHub”, you agree to our 
+                            <a href="#">Terms of Service</a>
+                            and 
+                            <a href="#">Privacy Statement</a>
+                            . We’ll occasionally send you account related emails.
+                        </p>
                     </div>
-
-                    <p class="regras termos">
-                        By clicking “Sign up for GitHub”, you agree to our 
-                        <a href="#">Terms of Service</a>
-                         and 
-                        <a href="#">Privacy Statement</a>
-                        . We’ll occasionally send you account related emails.
-                    </p>
-
-                </div>
+                </form>
             </div>
             <div class="loginMobile">
                 Sign up for GitHub

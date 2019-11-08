@@ -14,7 +14,7 @@ conn.catch((err) => { throw err; });
 
 module.exports = class MongoDocument {
     save () {
-        if (this.id) {
+        if (this._id) {
             return conn.then((conn) => {
                 return conn.db.collection(this.collection)
                         .updateOne({_id: this._id}, {$set: this});
@@ -38,7 +38,7 @@ module.exports = class MongoDocument {
 
     static findOne(_id, collection) {
         return conn.then((conn) => {
-            return conn.db.collection(this.collection)
+            return conn.db.collection(collection)
                     .findOne({_id: ObjectId(_id)});
         });
     }
