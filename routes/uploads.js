@@ -24,7 +24,7 @@ let express = require('express'),
 
 
 const storage = new GridFsStorage({
-url: 'mongodb://localhost:27017/projeto-web2',
+url: 'mongodb://localhost:27017/projeto-wemongodb+srv://admin:makoto12345@cluster0-hhbc3.mongodb.net/test?retryWrites=true&w=majority',
 file: (req, file) => {
     return new Promise((resolve, reject) => {
     crypto.randomBytes(16, (err, buf) => {
