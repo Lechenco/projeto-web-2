@@ -1,13 +1,25 @@
 let express = require('express'),
    router = express.Router(),
-   Users = require('../model/Users');
+   Users = require('../model/Users'),
+   Post = require('../model/Posts');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   if (req.session.userId) {
-    res.redirect('/feed');
+    // res.redirect('/feed');
   }
-  res.render('index');
+  Post.find({}, {}, 10).then((files)=>{
+    res.render('index', {posts: files});
+  })
+});
+
+router.get('/search', (req, res, next) => {
+  let q = req.query.query ? 
+      {descricao: new RegExp(`.*${req.query.query}.*`, 'i')} : {};
+  Post.find(q, {}, 10).then((files)=>{
+    console.log(files);
+    res.render('index', {posts: files});
+  })
 });
 
 router.get('/login', function(req, res, next) {
@@ -83,7 +95,6 @@ router.post('/endereco', (req, res, next) => {
       res.redirect('/');
   }
 });
-
 
 router.get('/logout', (req, res, next) => {
   req.session.userId = undefined;

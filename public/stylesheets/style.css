@@ -400,3 +400,13 @@ form.dark label, .dark {
 p.error {
   color: red;
 }
+
+img.feed-image {
+  max-width: 200px;
+}
+
+div.post {
+  background-color: rgb(85, 85, 85);
+  border: 1px solid #ffffff;
+  margin-bottom: 5px;
+}

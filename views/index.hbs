@@ -21,8 +21,10 @@
                                                                         
                     <div class="right-side">
                         <div class="search">
-                            <input type="text" class="search-input" placeholder="Search GitHub">
-                            <img src="images/search-key-slash.svg" alt="" class="search-symbol">
+                            <form action="/search" method="get">
+                                <input type="text" class="search-input" placeholder="Search GitHub" id="query" name="query">
+                                <img src="images/search-key-slash.svg" alt="" class="search-symbol">
+                            </form>
                         </div>
                         <a href="/login" class="button signin">Sign in</a>
                         <a href="" class="button border">Sign up</a> 
@@ -89,4 +91,14 @@
                 Sign up for GitHub
             </div>
         </div>
+
+        {{#each posts}}
+        <div class="post">
+            {{#if imagem}}
+            <img class="feed-image" src="uploads/{{imagem}}">
+            {{/if}}
+            <div class="dark">{{descricao}}</div>
+        </div>
+        {{/each}}
+
     </body>
