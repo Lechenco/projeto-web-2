@@ -22,6 +22,16 @@ router.get('/search', (req, res, next) => {
   })
 });
 
+router.get('/live-search', (req, res, next) => {
+  let q = req.query.value ? 
+      {descricao: new RegExp(`.*${req.query.value}.*`, 'i')} : {};
+  
+  Post.find(q, {}, 10).then((posts) => {
+    let descricoes = posts.map((elem) => elem.descricao);
+    res.json(descricoes);
+  });
+});
+
 router.get('/login', function(req, res, next) {
   if (req.session.userId) {
     res.redirect('/feed');
@@ -100,4 +110,6 @@ router.get('/logout', (req, res, next) => {
   req.session.userId = undefined;
   res.redirect('/');
 })
+
+
 module.exports = router;

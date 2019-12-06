@@ -1,4 +1,6 @@
 <header>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="javascripts/index.js"></script>
             <div class="container-xl">
                 <div class="logo">
                     <img src="assets/icon-github.svg" class="logo-icon">
@@ -21,10 +23,17 @@
                                                                         
                     <div class="right-side">
                         <div class="search">
-                            <form action="/search" method="get">
-                                <input type="text" class="search-input" placeholder="Search GitHub" id="query" name="query">
+                            <form autocomplete="off" action="/search" method="get">
+                                <input type="text" oninput="liveSearch(this.value)" class="search-input" placeholder="Search GitHub" id="query" name="query">
                                 <img src="images/search-key-slash.svg" alt="" class="search-symbol">
                             </form>
+                            <div class="container-live-search">
+                                <ul class="live-search">
+                                    {{!-- <li class="live-search-item">tst</li>
+                                    <li class="live-search-item">tst</li>
+                                    <li class="live-search-item">tst</li> --}}
+                                </ul>
+                            </div>
                         </div>
                         <a href="/login" class="button signin">Sign in</a>
                         <a href="" class="button border">Sign up</a> 
