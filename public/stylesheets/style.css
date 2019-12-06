@@ -410,3 +410,9 @@ div.post {
   border: 1px solid #ffffff;
   margin-bottom: 5px;
 }
+
+li.live-search-item {
+  display: block; 
+  width: 100%;
+  line-height: 30px;
+}
