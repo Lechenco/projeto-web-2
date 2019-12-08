@@ -411,8 +411,17 @@ div.post {
   margin-bottom: 5px;
 }
 
+ul.live-search {
+  padding: 5px;
+}
+
 li.live-search-item {
   display: block; 
   width: 100%;
   line-height: 30px;
+}
+
+li.live-search-item:hover {
+  background-color: #ffffff;
+  color: #24292e;
 }
