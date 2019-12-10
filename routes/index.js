@@ -18,7 +18,7 @@ router.get('/search', (req, res, next) => {
       {descricao: new RegExp(`.*${req.query.query}.*`, 'i')} : {};
   Post.find(q, {}, 10).then((files)=>{
     console.log(files);
-    res.render('index', {posts: files});
+    res.json({posts: files});
   })
 });
 

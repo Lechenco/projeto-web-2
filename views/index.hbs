@@ -23,7 +23,7 @@
                                                                         
                     <div class="right-side">
                         <div class="search">
-                            <form autocomplete="off" action="/search" method="get">
+                            <form autocomplete="off" class="search-form" action="/search" method="get">
                                 <input type="text" oninput="liveSearch(this.value)" class="search-input" placeholder="Search GitHub" id="query" name="query">
                                 <img src="images/search-key-slash.svg" alt="" class="search-symbol">
                             </form>
@@ -100,14 +100,8 @@
                 Sign up for GitHub
             </div>
         </div>
+        <img id="progresso" src = "images/loading.gif" style = "display: none"/>
 
-        {{#each posts}}
-        <div class="post">
-            {{#if imagem}}
-            <img class="feed-image" src="uploads/{{imagem}}">
-            {{/if}}
-            <div class="dark">{{descricao}}</div>
-        </div>
-        {{/each}}
+        <div class="post-container"></div>
 
     </body>
